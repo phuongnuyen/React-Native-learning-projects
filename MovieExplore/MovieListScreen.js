@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   ListView,
  } from 'react-native';
- //import Api from './api';
+ import Api from './api';
 
 export default class HomeScreen extends React.Component {
   constructor() {
@@ -15,11 +15,11 @@ export default class HomeScreen extends React.Component {
       rowHasChanged: (r1, r2) => r1 != r2
     });
     this.state = {
-      dataSource: dSource.cloneWithRows(['row 1', 'row 2', 'row 3']),
+      dataSource: dSource.cloneWithRows([]),
     }
-    // Api.search('ironman').then((data) => {
-    //   this.setState({dataSource: dSource.cloneWithRows(data)});
-    // })
+    Api.search('tron').then((data) => {
+      this.setState({dataSource: dSource.cloneWithRows(data)});
+    })
   }
 
   static navigationOptions = {
@@ -44,8 +44,7 @@ export default class HomeScreen extends React.Component {
         }
         renderRow={(rowData) => {
           return (
-            // <Text>{rowData.title}</Text>
-            <Text>{rowData}</Text>
+            <Text>{rowData.original_title}</Text>
           )
         }}
       >

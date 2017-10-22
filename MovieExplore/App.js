@@ -18,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <StatusBar backgroundColor='firebrick'/>
+        <StatusBar backgroundColor='firebrick' barStyle='light-content'/>
         <Screens />
       </View>
     );
